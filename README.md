@@ -17,3 +17,9 @@ Usage
 $ git clone https://github.com/umi-uyura/my_alloy_template
 $ titanium create --template ./my_alloy_template
 ```
+
+or 
+
+```
+$ titanium create --template https://github.com/umi-uyura/my_alloy_template/raw/master/my_alloy_template.zip
+```
