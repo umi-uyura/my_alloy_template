@@ -1,3 +1,5 @@
+"use strict";
+
 task("pre:compile", function(event, logger) {
   var wrench = require("wrench"),
       fs = require("fs"),
@@ -6,7 +8,7 @@ task("pre:compile", function(event, logger) {
       styl = require("stylus"),
       view_root = event.dir.views,
       style_root = event.dir.styles;
- 
+
   // jade
   event.alloyConfig.xml = [];
   wrench.readdirSyncRecursive(view_root).forEach(function(view) {
@@ -15,7 +17,7 @@ task("pre:compile", function(event, logger) {
       fs.writeFileSync(
         path.join(view_root, view.replace(/\.jade$/, ".xml")),
         jade.compile(fs.readFileSync(path.join(view_root, view)).toString())(event));
-    } 
+    }
   });
   // ~jade
 
@@ -66,7 +68,7 @@ task("pre:compile", function(event, logger) {
     });
 
     return tss2.join("\n");
-  }
+  };
 
   wrench.readdirSyncRecursive(style_root).forEach(function(view) {
     if (view.match("styl$")) {
@@ -77,14 +79,14 @@ task("pre:compile", function(event, logger) {
   });
   // ~stylus
 });
- 
+
 task("post:compile", function(event, logger) {
   var fs = require("fs"),
       path = require("path"),
       view_root = event.dir.views,
       style_root = event.dir.styles;
 
-  if (event.alloyConfig.deploytype != "development") {
+  if (event.alloyConfig.deploytype !== "development") {
     // jade
     event.alloyConfig.xml.forEach(function(view) {
       if (!view.match(/index.xml/g)) {
