@@ -23,3 +23,11 @@ or
 ```
 $ titanium create --template https://github.com/umi-uyura/my_alloy_template/raw/master/my_alloy_template.zip
 ```
+
+Archive
+------
+
+```
+$ git archive HEAD --format=zip --worktree-attributes > my_alloy_template.zip
+```
+
