@@ -31,3 +31,13 @@ Archive
 $ git archive HEAD --format=zip --worktree-attributes > my_alloy_template.zip
 ```
 
+Update template
+----------------
+
+```
+$ mkdir -p template_tmp/Resources
+$ cp template/tiapp.xml template_tmp
+$ alloy new template_tmp
+```
+
+And, it will properly reflect the difference between *template* and *template_tmp*.
